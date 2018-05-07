@@ -1,14 +1,18 @@
-<button class="btn pull-left" ng-click="newKey()">New Keypair</button>
-<input type="text" ng-model="key.label" placeholder="label">
-{{ message }}
-<p>Balance: {{ balance }}</p>
-<p><input type="text" ng-model="send.address" placeholder="address">
-<input type="number" ng-model="send.amount" min="0" step="0.00000001" 
-placeholder="amount">
-<button class="btn pull-left" ng-click="sendToAddress()">Send</button>
-</p>
-<br><br>
-<table class="table-striped full-width">
+<div class="walletInfoContainer">
+	
+	<input type="text" ng-model="key.label" placeholder="label">
+	<button class="btn pull-left" ng-click="newKey()">New Keypair</button>
+	{{ message }}
+	<p>Balance: {{ balance }}</p>
+<!-- </div> 
+
+<div class="sendContainer"> -->
+	<input type="text" ng-model="send.address" placeholder="address">
+	<input type="number" ng-model="send.amount" min="0" step="0.00000001" 
+	placeholder="amount">
+	<button class="btn pull-left" ng-click="sendToAddress()">Send</button>
+</div>
+<table class="table-striped" class="keysDisplay">
     <tr>
         <th>Label</th>
         <th>Public Key</th>

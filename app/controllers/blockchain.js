@@ -19,7 +19,7 @@ router.post('/txos', function(req, res) {
                       message: err});
             return;
         }
-        
+        console.log(rpcRes);
         res.json({success: true,
                   txos: rpcRes});
     });
