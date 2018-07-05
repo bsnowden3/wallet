@@ -67,7 +67,8 @@ router.post('/', function(req, res) {
                         }
                         
                         res.json({success: true,
-                                  message: 'User created!' 
+                                  message: 'User created!',
+				  user_id: user.id, 
                                  });
                     }); 
                 });

@@ -53,6 +53,7 @@ router.post('/authenticate', function(req, res) {
                             
                           res.json({
                               success: true,
+			      user_id: user.id,
                               token: token
                           });
                       } else {
