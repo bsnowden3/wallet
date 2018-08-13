@@ -59,4 +59,21 @@ router.post('/util/sendrawtransaction', function(req, res) {
     });
 });
 
+router.post('/util/gettransaction', function(req, res) {
+    client.call('gettransaction',
+                {"id": req.body.id},
+                function(err, rpcRes) {
+        if(err) {
+            res.json({success: false,
+                      message: err
+                    });
+            return;
+        }
+
+        res.json({success: true,
+                  result: rpcRes
+                 });
+    });
+});
+
 module.exports = router;

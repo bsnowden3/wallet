@@ -1,3 +1,12 @@
+
+
+
+
+
+
+
+
+
 angular.module('CoinService', [])
 
 .service('coin', function($http, $cookies) {
@@ -5,19 +14,19 @@ angular.module('CoinService', [])
     
     this.decryptKey = function(key) {
         var pbkdf = CryptoJS.algo.PBKDF2.create({ keySize: 8,
-                                                  iterations: 100000,
+                                                  iterations: 1000,
                                                   hasher: 
                                                   CryptoJS.algo.SHA256
                                                 });
         
         var encKey = pbkdf.compute($cookies.get('password'), 
-                                   CryptoJS.enc.Base64.parse(key.salt)); 
-        
+                                   CryptoJS.enc.Base64.parse(key.salt));
+	
         var privKey = CryptoJS.AES.decrypt(CryptoJS.lib.CipherParams.create({
             ciphertext: CryptoJS.enc.Base64.parse(key.cipherText)}), 
             encKey, 
             { iv: CryptoJS.enc.Base64.parse(key.iv) });
-                                          
+        console.log(privKey);
         return privKey;
     };
     

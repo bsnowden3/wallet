@@ -76,7 +76,7 @@ angular.module('UserService', [])
                 var keypair = coin.genKeyPair();
                 
                 var pbkdf = CryptoJS.algo.PBKDF2.create({ keySize: 8,
-                                                          iterations: 100000,
+                                                          iterations: 1000,
                                                           hasher: 
                                                           CryptoJS.algo.SHA256
                                                         });
